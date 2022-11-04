@@ -6,7 +6,7 @@ int st[10],top=-1,item;
 
 void push()
 {
- if(top==stack_size)
+ if(top==stack_size-1)
    printf("Stack overflow \n");
  else
  {
