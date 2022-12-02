@@ -1,0 +1,77 @@
+#include <stdio.h>
+#define qsize 5
+#include <stdlib.h>
+int count=0;
+void insert(int q[], int item, int *rear)
+{
+    if(count== qsize)
+     printf("Queue overflow\n");
+    else
+    {    
+        (*rear)++;
+        (*rear)=(*rear)%qsize;
+        q[*rear]=item;
+        count++;
+    }
+}
+
+int delete(int q[], int *front, int*rear)
+{
+    int del_item;
+    if(count==0)
+     printf("Queue underflow\n");
+    else
+    {
+        del_item=q[*front];
+        (*front)=(++(*front))%qsize;
+        count--;
+        return del_item;
+    }
+}
+
+void display(int q[],int *front)
+{
+    int temp,i;
+    temp=*front;
+    if(count==0)
+    {
+        printf("Queue underflow\n");
+    }
+    else
+    {
+    for(i=0; i<count;i++)
+    {
+        printf("%d \n",q[temp]);
+        temp=(temp+1)% qsize;
+    }
+}
+}
+
+void main()
+{
+     int q[qsize],r=-1,f=0,item,del;
+     int n;
+     while(1)
+     {
+     printf("1.Insert\n2.Delete\n3.Display\n4.Exit\n");
+     printf("Enter your choice:\n");
+     scanf("%d",&n);
+     switch(n)
+     {
+        case 1:printf("Enter the element to be inserted\n");
+              scanf("%d",&item);
+              insert(q,item,&r);
+              break;
+        case 2:del=delete(q,&f,&r);
+              printf("The deleted element is %d:\n",del);
+               break;
+        case 3:display(q,&f);
+              break;
+        case 4:exit(0);
+               break;
+        default:printf("Enter the correct value\n");
+}
+
+
+    }
+}
