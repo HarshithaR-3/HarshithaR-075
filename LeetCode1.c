@@ -3,10 +3,8 @@ void main()
 {
     int height[]={10,6,8,5,11,9};
     int number[10];
-    int buffer[10];
     int i,j,k;
-    int var;
-    int a=0;
+    int max;
     int count;
     for(i=0;i<6;i++)
     {
@@ -14,9 +12,9 @@ void main()
         var=0;
         for(j=i+1;j<6;j++)
         {
-           if(height[i]>var && height[j]>var)
+           if(height[i]>max && height[j]>max)
            {
-               var=height[j];
+               max=height[j];
                count++;
            }
         }
